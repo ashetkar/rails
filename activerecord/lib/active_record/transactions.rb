@@ -235,7 +235,9 @@ module ActiveRecord
         end
       end
 
-      # Returns the current transaction. See ActiveRecord::Transactions API docs.
+      # Returns the current transaction if there is one, otherwise a null object
+      # that responds to the same API. Please, check ActiveRecord::Transaction
+      # out.
       def current_transaction
         connection_pool.active_connection&.current_transaction || ConnectionAdapters::TransactionManager::NULL_TRANSACTION
       end
