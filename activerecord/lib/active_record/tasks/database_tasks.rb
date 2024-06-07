@@ -84,6 +84,7 @@ module ActiveRecord
       register_task(/mysql/,        "ActiveRecord::Tasks::MySQLDatabaseTasks")
       register_task(/postgresql/,   "ActiveRecord::Tasks::PostgreSQLDatabaseTasks")
       register_task(/sqlite/,       "ActiveRecord::Tasks::SQLiteDatabaseTasks")
+      register_task(/yugabyte_db/,   "ActiveRecord::Tasks::PostgreSQLDatabaseTasks")
 
       def db_dir
         @db_dir ||= Rails.application.config.paths["db"].first
