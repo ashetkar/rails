@@ -6,17 +6,17 @@ require "yugabyte_ysql"
 require "active_support/core_ext/object/try"
 require "active_record/connection_adapters/abstract_adapter"
 require "active_record/connection_adapters/statement_pool"
-require "active_record/connection_adapters/postgresql/column"
+require "active_record/connection_adapters/yugabyte_db/column"
 require "active_record/connection_adapters/yugabyte_db/database_statements"
 require "active_record/connection_adapters/yugabyte_db/explain_pretty_printer"
 require "active_record/connection_adapters/yugabyte_db/oid"
 require "active_record/connection_adapters/yugabyte_db/quoting"
 require "active_record/connection_adapters/yugabyte_db/referential_integrity"
-require "active_record/connection_adapters/postgresql/schema_creation"
-require "active_record/connection_adapters/postgresql/schema_definitions"
-require "active_record/connection_adapters/postgresql/schema_dumper"
-require "active_record/connection_adapters/postgresql/schema_statements"
-require "active_record/connection_adapters/postgresql/type_metadata"
+require "active_record/connection_adapters/yugabyte_db/schema_creation"
+require "active_record/connection_adapters/yugabyte_db/schema_definitions"
+require "active_record/connection_adapters/yugabyte_db/schema_dumper"
+require "active_record/connection_adapters/yugabyte_db/schema_statements"
+require "active_record/connection_adapters/yugabyte_db/type_metadata"
 require "active_record/connection_adapters/yugabyte_db/utils"
 
 module ActiveRecord
@@ -1042,27 +1042,27 @@ module ActiveRecord
           end
         end
 
-        ActiveRecord::Type.add_modifier({ array: true }, OID::Array, adapter: :postgresql)
-        ActiveRecord::Type.add_modifier({ range: true }, OID::Range, adapter: :postgresql)
-        ActiveRecord::Type.register(:bit, OID::Bit, adapter: :postgresql)
-        ActiveRecord::Type.register(:bit_varying, OID::BitVarying, adapter: :postgresql)
-        ActiveRecord::Type.register(:binary, OID::Bytea, adapter: :postgresql)
-        ActiveRecord::Type.register(:cidr, OID::Cidr, adapter: :postgresql)
-        ActiveRecord::Type.register(:date, OID::Date, adapter: :postgresql)
-        ActiveRecord::Type.register(:datetime, OID::DateTime, adapter: :postgresql)
-        ActiveRecord::Type.register(:decimal, OID::Decimal, adapter: :postgresql)
-        ActiveRecord::Type.register(:enum, OID::Enum, adapter: :postgresql)
-        ActiveRecord::Type.register(:hstore, OID::Hstore, adapter: :postgresql)
-        ActiveRecord::Type.register(:inet, OID::Inet, adapter: :postgresql)
-        ActiveRecord::Type.register(:interval, OID::Interval, adapter: :postgresql)
-        ActiveRecord::Type.register(:jsonb, OID::Jsonb, adapter: :postgresql)
-        ActiveRecord::Type.register(:money, OID::Money, adapter: :postgresql)
-        ActiveRecord::Type.register(:point, OID::Point, adapter: :postgresql)
-        ActiveRecord::Type.register(:legacy_point, OID::LegacyPoint, adapter: :postgresql)
-        ActiveRecord::Type.register(:uuid, OID::Uuid, adapter: :postgresql)
-        ActiveRecord::Type.register(:vector, OID::Vector, adapter: :postgresql)
-        ActiveRecord::Type.register(:xml, OID::Xml, adapter: :postgresql)
+        ActiveRecord::Type.add_modifier({ array: true }, OID::Array, adapter: :yugabyte_db)
+        ActiveRecord::Type.add_modifier({ range: true }, OID::Range, adapter: :yugabyte_db)
+        ActiveRecord::Type.register(:bit, OID::Bit, adapter: :yugabyte_db)
+        ActiveRecord::Type.register(:bit_varying, OID::BitVarying, adapter: :yugabyte_db)
+        ActiveRecord::Type.register(:binary, OID::Bytea, adapter: :yugabyte_db)
+        ActiveRecord::Type.register(:cidr, OID::Cidr, adapter: :yugabyte_db)
+        ActiveRecord::Type.register(:date, OID::Date, adapter: :yugabyte_db)
+        ActiveRecord::Type.register(:datetime, OID::DateTime, adapter: :yugabyte_db)
+        ActiveRecord::Type.register(:decimal, OID::Decimal, adapter: :yugabyte_db)
+        ActiveRecord::Type.register(:enum, OID::Enum, adapter: :yugabyte_db)
+        ActiveRecord::Type.register(:hstore, OID::Hstore, adapter: :yugabyte_db)
+        ActiveRecord::Type.register(:inet, OID::Inet, adapter: :yugabyte_db)
+        ActiveRecord::Type.register(:interval, OID::Interval, adapter: :yugabyte_db)
+        ActiveRecord::Type.register(:jsonb, OID::Jsonb, adapter: :yugabyte_db)
+        ActiveRecord::Type.register(:money, OID::Money, adapter: :yugabyte_db)
+        ActiveRecord::Type.register(:point, OID::Point, adapter: :yugabyte_db)
+        ActiveRecord::Type.register(:legacy_point, OID::LegacyPoint, adapter: :yugabyte_db)
+        ActiveRecord::Type.register(:uuid, OID::Uuid, adapter: :yugabyte_db)
+        ActiveRecord::Type.register(:vector, OID::Vector, adapter: :yugabyte_db)
+        ActiveRecord::Type.register(:xml, OID::Xml, adapter: :yugabyte_db)
     end
-    ActiveSupport.run_load_hooks(:active_record_postgresqladapter, YugabyteDBAdapter)
+    ActiveSupport.run_load_hooks(:active_record_yugabytedbadapter, YugabyteDBAdapter)
   end
 end
