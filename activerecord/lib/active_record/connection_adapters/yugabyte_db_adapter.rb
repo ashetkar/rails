@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-gem "yugabyte_ysql", "~> 0.2"
+gem "yugabyte_ysql", "~> 0.3"
 require "yugabyte_ysql"
 
 require "active_support/core_ext/object/try"
