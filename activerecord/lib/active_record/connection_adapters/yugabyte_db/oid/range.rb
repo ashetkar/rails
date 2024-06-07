@@ -2,7 +2,7 @@
 
 module ActiveRecord
   module ConnectionAdapters
-    module PostgreSQL
+    module YugabyteDB
       module OID # :nodoc:
         class Range < Type::Value # :nodoc:
           attr_reader :subtype, :type

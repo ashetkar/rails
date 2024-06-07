@@ -2,7 +2,7 @@
 
 module ActiveRecord
   module ConnectionAdapters
-    module PostgreSQL
+    module YugabyteDB
       module OID # :nodoc:
         class Decimal < Type::Decimal # :nodoc:
           def infinity(options = {})

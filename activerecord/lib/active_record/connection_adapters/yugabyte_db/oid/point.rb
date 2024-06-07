@@ -4,7 +4,7 @@ module ActiveRecord
   Point = Struct.new(:x, :y)
 
   module ConnectionAdapters
-    module PostgreSQL
+    module YugabyteDB
       module OID # :nodoc:
         class Point < Type::Value # :nodoc:
           include ActiveModel::Type::Helpers::Mutable

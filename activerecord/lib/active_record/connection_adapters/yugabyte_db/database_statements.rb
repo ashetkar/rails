@@ -2,12 +2,12 @@
 
 module ActiveRecord
   module ConnectionAdapters
-    module PostgreSQL
+    module YugabyteDB
       module DatabaseStatements
         def explain(arel, binds = [], options = [])
           sql    = build_explain_clause(options) + " " + to_sql(arel, binds)
           result = internal_exec_query(sql, "EXPLAIN", binds)
-          PostgreSQL::ExplainPrettyPrinter.new.pp(result)
+          YugabyteDB::ExplainPrettyPrinter.new.pp(result)
         end
 
         # Queries the database and returns the results in an Array-like object
@@ -159,7 +159,7 @@ module ActiveRecord
         end
 
         private
-          IDLE_TRANSACTION_STATUSES = [PG::PQTRANS_IDLE, PG::PQTRANS_INTRANS, PG::PQTRANS_INERROR]
+          IDLE_TRANSACTION_STATUSES = [YugabyteYSQL::PQTRANS_IDLE, YugabyteYSQL::PQTRANS_INTRANS, YugabyteYSQL::PQTRANS_INERROR]
           private_constant :IDLE_TRANSACTION_STATUSES
 
           def cancel_any_running_query
@@ -167,7 +167,7 @@ module ActiveRecord
 
             @raw_connection.cancel
             @raw_connection.block
-          rescue PG::Error
+          rescue YugabyteYSQL::Error
           end
 
           def execute_batch(statements, name = nil)

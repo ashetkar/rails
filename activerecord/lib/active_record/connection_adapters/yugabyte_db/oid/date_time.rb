@@ -2,7 +2,7 @@
 
 module ActiveRecord
   module ConnectionAdapters
-    module PostgreSQL
+    module YugabyteDB
       module OID # :nodoc:
         class DateTime < Type::DateTime # :nodoc:
           def cast_value(value)
@@ -27,7 +27,7 @@ module ActiveRecord
 
           protected
             def real_type_unless_aliased(real_type)
-              ActiveRecord::ConnectionAdapters::PostgreSQLAdapter.datetime_type == real_type ? :datetime : real_type
+              ActiveRecord::ConnectionAdapters::YugabyteDBAdapter.datetime_type == real_type ? :datetime : real_type
             end
         end
       end

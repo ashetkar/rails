@@ -30,7 +30,7 @@ require "active_record/connection_adapters/postgresql/oid/type_map_initializer"
 
 module ActiveRecord
   module ConnectionAdapters
-    module PostgreSQL
+    module YugabyteDB
       module OID # :nodoc:
       end
     end

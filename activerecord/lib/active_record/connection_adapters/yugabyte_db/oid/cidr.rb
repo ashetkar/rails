@@ -4,7 +4,7 @@ require "ipaddr"
 
 module ActiveRecord
   module ConnectionAdapters
-    module PostgreSQL
+    module YugabyteDB
       module OID # :nodoc:
         class Cidr < Type::Value # :nodoc:
           def type

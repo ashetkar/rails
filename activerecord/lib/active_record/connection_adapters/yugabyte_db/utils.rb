@@ -2,7 +2,7 @@
 
 module ActiveRecord
   module ConnectionAdapters
-    module PostgreSQL
+    module YugabyteDB
       # Value Object to hold a schema qualified name.
       # This is usually the name of a PostgreSQL relation but it can also represent
       # schema qualified type names. +schema+ and +identifier+ are unquoted to prevent
@@ -21,9 +21,9 @@ module ActiveRecord
 
         def quoted
           if schema
-            PG::Connection.quote_ident(schema) << SEPARATOR << PG::Connection.quote_ident(identifier)
+            YugabyteYSQL::Connection.quote_ident(schema) << SEPARATOR << YugabyteYSQL::Connection.quote_ident(identifier)
           else
-            PG::Connection.quote_ident(identifier)
+            YugabyteYSQL::Connection.quote_ident(identifier)
           end
         end
 
@@ -63,7 +63,7 @@ module ActiveRecord
             table = schema
             schema = nil
           end
-          PostgreSQL::Name.new(schema, table)
+          YugabyteDB::Name.new(schema, table)
         end
 
         def unquote_identifier(identifier)

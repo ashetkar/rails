@@ -2,7 +2,7 @@
 
 module ActiveRecord
   module ConnectionAdapters
-    module PostgreSQL
+    module YugabyteDB
       module OID # :nodoc:
         class Array < Type::Value # :nodoc:
           include ActiveModel::Type::Helpers::Mutable
@@ -16,8 +16,8 @@ module ActiveRecord
             @subtype = subtype
             @delimiter = delimiter
 
-            @pg_encoder = PG::TextEncoder::Array.new name: "#{type}[]", delimiter: delimiter
-            @pg_decoder = PG::TextDecoder::Array.new name: "#{type}[]", delimiter: delimiter
+            @pg_encoder = YugabyteYSQL::TextEncoder::Array.new name: "#{type}[]", delimiter: delimiter
+            @pg_decoder = YugabyteYSQL::TextDecoder::Array.new name: "#{type}[]", delimiter: delimiter
           end
 
           def deserialize(value)

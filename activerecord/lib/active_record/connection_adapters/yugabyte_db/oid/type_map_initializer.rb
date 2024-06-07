@@ -4,7 +4,7 @@ require "active_support/core_ext/array/extract"
 
 module ActiveRecord
   module ConnectionAdapters
-    module PostgreSQL
+    module YugabyteDB
       module OID # :nodoc:
         # This class uses the data from PostgreSQL pg_type table to build
         # the OID -> Type mapping.

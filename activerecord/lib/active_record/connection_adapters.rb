@@ -124,6 +124,7 @@ module ActiveRecord
     register "mysql2", "ActiveRecord::ConnectionAdapters::Mysql2Adapter", "active_record/connection_adapters/mysql2_adapter"
     register "trilogy", "ActiveRecord::ConnectionAdapters::TrilogyAdapter", "active_record/connection_adapters/trilogy_adapter"
     register "postgresql", "ActiveRecord::ConnectionAdapters::PostgreSQLAdapter", "active_record/connection_adapters/postgresql_adapter"
+    register "yugabyte_db", "ActiveRecord::ConnectionAdapters::YugabyteDBAdapter", "active_record/connection_adapters/yugabyte_db_adapter"
 
     eager_autoload do
       autoload :AbstractAdapter

@@ -4,7 +4,7 @@ require "active_support/duration"
 
 module ActiveRecord
   module ConnectionAdapters
-    module PostgreSQL
+    module YugabyteDB
       module OID # :nodoc:
         class Interval < Type::Value # :nodoc:
           def type

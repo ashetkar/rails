@@ -2,7 +2,7 @@
 
 module ActiveRecord
   module ConnectionAdapters
-    module PostgreSQL
+    module YugabyteDB
       module Quoting
         extend ActiveSupport::Concern
 
@@ -44,7 +44,7 @@ module ActiveRecord
 
           # Quotes column names for use in SQL queries.
           def quote_column_name(name) # :nodoc:
-            QUOTED_COLUMN_NAMES[name] ||= PG::Connection.quote_ident(name.to_s).freeze
+            QUOTED_COLUMN_NAMES[name] ||= YugabyteYSQL::Connection.quote_ident(name.to_s).freeze
           end
 
           # Checks the following cases:

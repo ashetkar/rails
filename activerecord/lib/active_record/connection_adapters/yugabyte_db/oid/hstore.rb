@@ -4,7 +4,7 @@ require "strscan"
 
 module ActiveRecord
   module ConnectionAdapters
-    module PostgreSQL
+    module YugabyteDB
       module OID # :nodoc:
         class Hstore < Type::Value # :nodoc:
           ERROR = "Invalid Hstore document: %s"

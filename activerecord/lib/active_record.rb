@@ -534,6 +534,7 @@ module ActiveRecord
       sqlite: "sqlite3",
       mysql: "mysql2",
       postgres: "postgresql",
+      yugabytedb: "yugabytedb",
     }
   )
 
