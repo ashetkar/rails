@@ -22,7 +22,7 @@ require "active_record/connection_adapters/yugabyte_db/utils"
 module ActiveRecord
   module ConnectionHandling # :nodoc:
     # Establishes a connection to the database that's used by all Active Record objects
-    def postgresql_connection(config)
+    def yugabyte_db_connection(config)
       conn_params = config.symbolize_keys.compact
 
       # Map ActiveRecords param names to PGs.
@@ -298,7 +298,7 @@ module ActiveRecord
       end
 
       def self.database_exists?(config)
-        !!ActiveRecord::Base.postgresql_connection(config)
+        !!ActiveRecord::Base.yugabyte_db_connection(config)
       rescue ActiveRecord::NoDatabaseError
         false
       end
